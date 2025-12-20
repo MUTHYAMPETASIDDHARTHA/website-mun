@@ -11,8 +11,8 @@ export default {
         burgundy: '#800020',
       },
       fontFamily: {
-        serif: ['Playfair Display', 'Libre Baskerville', 'Georgia', 'Times New Roman', 'serif'],
-        sans: ['Inter', 'Source Sans 3', 'system-ui', 'sans-serif'],
+        serif: ['Cinzel', 'Playfair Display', 'Cormorant Garamond', 'Libre Baskerville', 'Georgia', 'serif'],
+        sans: ['Lora', 'Libre Baskerville', 'Inter', 'system-ui', 'sans-serif'],
       },
     },
   },

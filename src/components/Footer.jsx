@@ -19,7 +19,9 @@ const Footer = () => {
                 </svg>
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/cmrcet_mun?igsh=aHAwcm1ydjJ6dDBx"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-burgundy transition-colors"
                 aria-label="Instagram"
               >
@@ -83,7 +85,16 @@ const Footer = () => {
             <div className="bg-gray-800 rounded-lg overflow-hidden border border-gray-700 h-48 flex items-center justify-center">
               <p className="text-gray-400 font-sans text-sm text-center px-4">
                 CMRCET Campus<br />
-                <a href="#" className="text-burgundy hover:underline mt-2 inline-block">View larger map</a>
+                <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7744.738180042269!2d78.48241899230044!3d17.600702883292936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb850bb545e95b%3A0x4367e509f5ff38e5!2sCMR%20College%20of%20Engineering%20%26%20Technology%2C%20Hyderabad%20(CMRCET%2FCMRK)!5e1!3m2!1sen!2sin!4v1757951810604!5m2!1sen!2sin"
+                width="100%"
+                height="150"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="CMRCET Location"
+              ></iframe>
               </p>
             </div>
           </div>

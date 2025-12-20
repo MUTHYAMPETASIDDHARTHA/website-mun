@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 
 const StatisticsWindow = () => {
   const [isVisible, setIsVisible] = useState(false)
+  const [counts, setCounts] = useState({ prize: 0, delegates: 0, days: 3, experience: 1 })
   const sectionRef = useRef(null)
 
   useEffect(() => {
@@ -25,11 +26,51 @@ const StatisticsWindow = () => {
     }
   }, [])
 
+  useEffect(() => {
+    if (!isVisible) return
+
+    const duration = 2000
+    const steps = 60
+    const stepDuration = duration / steps
+
+    let currentStep = 0
+    const interval = setInterval(() => {
+      currentStep++
+      const progress = currentStep / steps
+
+      setCounts({
+        prize: Math.floor(100000 * progress),
+        delegates: Math.floor(280 * progress),
+        days: 3,
+        experience: 1
+      })
+
+      if (currentStep >= steps) {
+        clearInterval(interval)
+        setCounts({
+          prize: 100000,
+          delegates: 280,
+          days: 3,
+          experience: 1
+        })
+      }
+    }, stepDuration)
+
+    return () => clearInterval(interval)
+  }, [isVisible])
+
+  const formatNumber = (num) => {
+    if (num >= 1000) {
+      return num.toLocaleString('en-IN')
+    }
+    return num.toString()
+  }
+
   const stats = [
-    { value: '1,00,000', label: 'Prize Pool', suffix: '+' },
-    { value: '280', label: 'Delegates', suffix: '+' },
-    { value: '3', label: 'Days', suffix: '' },
-    { value: '1', label: 'Unforgettable Experience', suffix: '' }
+    { value: formatNumber(counts.prize), label: 'Prize Pool', suffix: '+' },
+    { value: formatNumber(counts.delegates), label: 'Delegates', suffix: '+' },
+    { value: counts.days, label: 'Days', suffix: '' },
+    { value: counts.experience, label: 'Unforgettable Experience', suffix: '' }
   ]
 
   return (
@@ -60,4 +101,3 @@ const StatisticsWindow = () => {
 }
 
 export default StatisticsWindow
-

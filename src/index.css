@@ -13,25 +13,25 @@
   
   body {
     @apply bg-charcoal text-gray-100;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Lora', 'Libre Baskerville', system-ui, sans-serif;
     font-weight: 400;
     line-height: 1.6;
     letter-spacing: -0.01em;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel', 'Playfair Display', 'Cormorant Garamond', serif;
     font-weight: 700;
     letter-spacing: 0.02em;
     line-height: 1.2;
   }
   
   button, .font-sans {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Lora', 'Libre Baskerville', 'Inter', system-ui, sans-serif;
   }
   
   .font-serif {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Cinzel', 'Playfair Display', 'Cormorant Garamond', serif;
   }
 }
 

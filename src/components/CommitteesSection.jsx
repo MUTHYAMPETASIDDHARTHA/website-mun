@@ -33,35 +33,35 @@ const CommitteesSection = () => {
       name: 'Continuous Crisis Committee',
       acronym: 'CCC',
       delegates: 60,
-      image: '/images/home-crisis.webp'
+      image: '/images/crisis-logo.png'
     },
     {
       id: 'disec',
       name: 'Disarmament and International Security Committee',
       acronym: 'DISEC',
       delegates: 60,
-      image: '/images/home-disec.webp'
+      image: '/images/disec-logo.png'
     },
     {
       id: 'ip',
       name: 'International Press',
       acronym: 'IP',
       delegates: 60,
-      image: '/images/ip-bg.jpg'
+      image: '/images/ip-logo.png'
     },
     {
       id: 'lok-sabha',
       name: 'Lok Sabha',
       acronym: 'LS',
       delegates: 60,
-      image: '/images/home-loksabha.jpg'
+      image: '/images/loksabha-logo.png'
     },
     {
       id: 'unhrc',
       name: 'United Nations Human Rights Council',
       acronym: 'UNHRC',
       delegates: 60,
-      image: '/images/unhrc.jpg'
+      image: 'public/images/unhrc-logo.png'
     }
   ]
 
@@ -100,7 +100,7 @@ const CommitteesSection = () => {
 
         <div className="space-y-8">
           {/* First row: 3 committees */}
-          <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 transform transition-all duration-1000 delay-200 ${
+          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transform transition-all duration-1000 delay-200 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             {committees.slice(0, 3).map((committee, index) => (
@@ -131,9 +131,11 @@ const CommitteesSection = () => {
 
                 <div className="absolute top-6 left-1/2 transform -translate-x-1/2 z-10">
                   <div className="flex flex-col items-center">
-                    <div className="w-12 h-12 rounded-full bg-burgundy border-2 border-white flex items-center justify-center mb-1 group-hover:scale-110 transition-transform">
-                      <div className="w-6 h-6 border border-white rounded-full"></div>
-                    </div>
+                    <img
+                      src="/images/logo.png"
+                      alt="CMRCET MUN Logo"
+                      className="w-12 h-12 rounded-full object-cover border-2 border-white mb-1 group-hover:scale-110 transition-transform"
+                    />
                     <span className="text-white text-xs font-serif font-bold tracking-wide">CMRCET MUN</span>
                   </div>
                 </div>
@@ -150,57 +152,57 @@ const CommitteesSection = () => {
             ))}
           </div>
 
-          {/* Second row: 2 committees centered */}
-          <div className={`flex justify-center transform transition-all duration-1000 delay-500 ${
+          {/* Second row: 2 committees centered on desktop */}
+          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 lg:max-w-4xl lg:mx-auto transform transition-all duration-1000 delay-500 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
-              {committees.slice(3, 5).map((committee, index) => (
-                <div
-                  key={committee.id}
-                  onClick={() => navigate(`/committee/${committee.id}`)}
-                  onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                      navigate(`/committee/${committee.id}`)
-                    }
-                  }}
-                  tabIndex={0}
-                  role="button"
-                  aria-label={`View ${committee.name} details`}
-                  className={`relative h-96 rounded-lg overflow-hidden group cursor-pointer transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-burgundy/20 ${
-                    isVisible ? 'opacity-100' : 'opacity-0'
-                  }`}
-                  style={{ transitionDelay: `${(index + 4) * 100}ms` }}
-                >
-                  <div className="absolute inset-0 z-0">
+            {committees.slice(3, 5).map((committee, index) => (
+              <div
+                key={committee.id}
+                onClick={() => navigate(`/committee/${committee.id}`)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    navigate(`/committee/${committee.id}`)
+                  }
+                }}
+                tabIndex={0}
+                role="button"
+                aria-label={`View ${committee.name} details`}
+                className={`relative h-96 rounded-lg overflow-hidden group cursor-pointer transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-burgundy/20 ${
+                  isVisible ? 'opacity-100' : 'opacity-0'
+                }`}
+                style={{ transitionDelay: `${(index + 4) * 100}ms` }}
+              >
+                <div className="absolute inset-0 z-0">
+                  <img
+                    src={committee.image}
+                    alt={committee.name}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/90 group-hover:from-black/40 group-hover:via-black/50 group-hover:to-black/80 transition-all duration-300"></div>
+                </div>
+
+                <div className="absolute top-6 left-1/2 transform -translate-x-1/2 z-10">
+                  <div className="flex flex-col items-center">
                     <img
-                      src={committee.image}
-                      alt={committee.name}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      src="/images/logo.png"
+                      alt="CMRCET MUN Logo"
+                      className="w-12 h-12 rounded-full object-cover border-2 border-white mb-1 group-hover:scale-110 transition-transform"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black/90 group-hover:from-black/40 group-hover:via-black/50 group-hover:to-black/80 transition-all duration-300"></div>
-                  </div>
-
-                  <div className="absolute top-6 left-1/2 transform -translate-x-1/2 z-10">
-                    <div className="flex flex-col items-center">
-                      <div className="w-12 h-12 rounded-full bg-burgundy border-2 border-white flex items-center justify-center mb-1 group-hover:scale-110 transition-transform">
-                        <div className="w-6 h-6 border border-white rounded-full"></div>
-                      </div>
-                      <span className="text-white text-xs font-serif font-bold tracking-wide">CMRCET MUN</span>
-                    </div>
-                  </div>
-
-                  <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
-                    <h3 className="text-white text-lg md:text-xl font-sans font-bold mb-2 leading-tight">
-                      {committee.name}
-                    </h3>
-                    <p className="text-white text-sm font-sans font-medium">
-                      {committee.delegates} Delegates
-                    </p>
+                    <span className="text-white text-xs font-serif font-bold tracking-wide">CMRCET MUN</span>
                   </div>
                 </div>
-              ))}
-            </div>
+
+                <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
+                  <h3 className="text-white text-lg md:text-xl font-sans font-bold mb-2 leading-tight">
+                    {committee.name}
+                  </h3>
+                  <p className="text-white text-sm font-sans font-medium">
+                    {committee.delegates} Delegates
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

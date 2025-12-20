@@ -1,10 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 const RegisterSection = () => {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef(null)
-  const navigate = useNavigate()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -27,8 +25,12 @@ const RegisterSection = () => {
     }
   }, [])
 
-  const handleRegisterClick = () => {
-    navigate('/register')
+  const handleInternalClick = () => {
+    window.open('https://forms.gle/5vJKNJdoaAh5dYJX7', '_blank')
+  }
+
+  const handleExternalClick = () => {
+    window.open('https://forms.gle/2eW8DP92m8P9G3ap6', '_blank')
   }
 
   return (
@@ -50,7 +52,7 @@ const RegisterSection = () => {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <button
-            onClick={handleRegisterClick}
+            onClick={handleInternalClick}
             className="group relative bg-white rounded-lg p-12 text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-burgundy/20 overflow-hidden"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-burgundy/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -64,7 +66,7 @@ const RegisterSection = () => {
             </div>
           </button>
           <button
-            onClick={handleRegisterClick}
+            onClick={handleExternalClick}
             className="group relative bg-white rounded-lg p-12 text-center transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-burgundy/20 overflow-hidden"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-burgundy/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -84,4 +86,3 @@ const RegisterSection = () => {
 }
 
 export default RegisterSection
-

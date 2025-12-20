@@ -1,14 +1,30 @@
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+import { useEffect } from 'react'
 
 const CommitteeDetail = () => {
   const { name } = useParams()
-  const navigate = useNavigate()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [name])
+
+  const handleInternalClick = () => {
+    window.open('https://forms.gle/5vJKNJdoaAh5dYJX7', '_blank')
+  }
+
+  const handleExternalClick = () => {
+    window.open('https://forms.gle/2eW8DP92m8P9G3ap6', '_blank')
+  }
 
   const committees = {
     ccc: {
       name: 'Continuous Crisis Committee',
       acronym: 'CCC',
       description: 'The Continuous Crisis Committee (CCC) is a dynamic and fast-paced committee that simulates real-time crisis situations. Delegates must respond to rapidly evolving scenarios, make critical decisions under pressure, and adapt their strategies as new information emerges. This committee challenges participants to think on their feet and demonstrate exceptional diplomatic skills.',
+      mandate: 'The Continuous Crisis Committee operates under a unique framework where delegates face rapidly unfolding crises that require immediate response and strategic thinking. Unlike traditional committees, CCC sessions are characterized by real-time updates, unexpected developments, and the need for quick decision-making.',
+      debate: 'Debates in CCC are intense and fast-paced, with crisis updates interrupting proceedings at any moment. Delegates must balance immediate crisis response with long-term strategic planning, often working under time constraints and with incomplete information.',
+      experience: 'This committee is ideal for delegates who thrive under pressure and enjoy dynamic, unpredictable scenarios. It requires quick thinking, adaptability, and the ability to make decisive choices while maintaining diplomatic decorum.',
+      skillset: 'Participants will develop critical thinking, crisis management, rapid decision-making, negotiation under pressure, strategic planning, and leadership skills. The committee emphasizes real-world problem-solving and the ability to work effectively in high-stakes situations.',
       delegates: 60,
       image: '/images/crisis-bg.png'
     },
@@ -16,6 +32,10 @@ const CommitteeDetail = () => {
       name: 'Disarmament and International Security Committee',
       acronym: 'DISEC',
       description: 'The Disarmament and International Security Committee (DISEC) addresses critical issues related to global security, arms control, and international peacekeeping. Delegates will engage in comprehensive debates on nuclear non-proliferation, conventional weapons regulation, and strategies for maintaining international peace and security in an increasingly complex global landscape.',
+      mandate: 'DISEC serves as the primary forum for discussing matters related to international peace and security, with a particular focus on disarmament, arms control, and conflict prevention. The committee addresses both traditional and emerging security threats.',
+      debate: 'Debates in DISEC are characterized by rigorous analysis of security policies, detailed examination of arms control mechanisms, and comprehensive discussion of peacekeeping strategies. Delegates engage in substantive policy discussions and work toward consensus-building.',
+      experience: 'This committee is perfect for delegates interested in international relations, security studies, and conflict resolution. It requires thorough research, understanding of complex security dynamics, and the ability to navigate sensitive geopolitical issues.',
+      skillset: 'Participants will enhance their research capabilities, policy analysis, diplomatic negotiation, public speaking, consensus-building, and understanding of international security frameworks. The committee emphasizes analytical thinking and collaborative problem-solving.',
       delegates: 60,
       image: '/images/image.png'
     },
@@ -23,6 +43,10 @@ const CommitteeDetail = () => {
       name: 'International Press',
       acronym: 'IP',
       description: 'The International Press committee provides a unique perspective on Model UN proceedings, with delegates serving as journalists covering the conference. Members will report on committee sessions, conduct interviews, create multimedia content, and maintain the conference newspaper. This committee offers an opportunity to develop communication skills and gain insight into media operations.',
+      mandate: 'The International Press serves as the media arm of the conference, responsible for documenting proceedings, analyzing debates, and providing comprehensive coverage of all committee activities. Members act as impartial observers and storytellers.',
+      debate: 'While IP members do not participate in traditional debates, they engage in editorial discussions, story planning, and content creation. They must balance objective reporting with engaging storytelling, often working under tight deadlines.',
+      experience: 'This committee is ideal for delegates interested in journalism, media, communications, and creative writing. It offers a unique behind-the-scenes perspective on MUN proceedings and requires strong writing and communication skills.',
+      skillset: 'Participants will develop journalistic writing, interviewing techniques, multimedia production, editorial skills, critical analysis, time management, and media ethics. The committee emphasizes creativity, objectivity, and effective communication.',
       delegates: 60,
       image: '/images/ip-bg.jpg'
     },
@@ -30,6 +54,10 @@ const CommitteeDetail = () => {
       name: 'Lok Sabha',
       acronym: 'LS',
       description: 'The Lok Sabha committee simulates the lower house of the Indian Parliament, focusing on domestic policy issues and legislative processes. Delegates will represent various constituencies and political parties, engaging in parliamentary debates, question hours, and legislative drafting. This committee provides insight into Indian democracy and governance mechanisms.',
+      mandate: 'The Lok Sabha committee addresses critical domestic policy issues facing India, focusing on legislative processes, parliamentary procedures, and democratic governance. Delegates represent constituencies and political parties, working within the framework of Indian parliamentary democracy.',
+      debate: 'Debates follow authentic parliamentary procedures including question hour, zero hour, and legislative discussions. Delegates engage in structured debates, propose amendments, and work toward passing legislation while representing their party positions and constituency interests.',
+      experience: 'This committee is perfect for delegates interested in Indian politics, governance, and legislative processes. It requires understanding of parliamentary procedures, political dynamics, and the ability to balance party loyalty with constituency representation.',
+      skillset: 'Participants will develop parliamentary procedure knowledge, legislative drafting, political negotiation, public speaking, constituency representation, and understanding of democratic processes. The committee emphasizes procedural knowledge and political acumen.',
       delegates: 60,
       image: '/images/loksabha-bg.jpg'
     },
@@ -37,6 +65,10 @@ const CommitteeDetail = () => {
       name: 'United Nations Human Rights Council',
       acronym: 'UNHRC',
       description: 'The United Nations Human Rights Council (UNHRC) addresses pressing human rights issues on a global scale. Delegates will examine violations of fundamental rights, develop resolutions to protect vulnerable populations, and work toward ensuring dignity and equality for all. This committee emphasizes the importance of human rights in international relations.',
+      mandate: 'The UNHRC is responsible for promoting and protecting human rights worldwide, addressing violations, and developing mechanisms to ensure fundamental freedoms. The committee examines specific human rights situations and works toward comprehensive solutions.',
+      debate: 'Debates focus on identifying human rights violations, analyzing root causes, and developing comprehensive resolutions that address both immediate concerns and long-term solutions. Delegates engage in sensitive discussions while maintaining diplomatic decorum.',
+      experience: 'This committee is ideal for delegates passionate about human rights, social justice, and humanitarian issues. It requires empathy, understanding of international law, and the ability to navigate complex ethical and political considerations.',
+      skillset: 'Participants will develop understanding of human rights frameworks, legal analysis, humanitarian advocacy, diplomatic negotiation, conflict resolution, and ethical reasoning. The committee emphasizes empathy, legal knowledge, and collaborative problem-solving.',
       delegates: 60,
       image: '/images/hrc-bg.jpg'
     }
@@ -71,16 +103,72 @@ const CommitteeDetail = () => {
               <span className="font-bold">{committee.delegates}</span> Delegates
             </p>
           </div>
-          <a
-            href="#register"
-            onClick={(e) => {
-              e.preventDefault()
-              navigate('/register')
-            }}
-            className="inline-block bg-burgundy border-2 border-burgundy text-white px-12 py-4 uppercase tracking-wider font-sans font-semibold hover:bg-opacity-90 transition-all duration-300 rounded text-lg hover:scale-105 hover:shadow-lg hover:shadow-burgundy/50"
-          >
-            REGISTER NOW
-          </a>
+        </div>
+      </section>
+
+      <section className="bg-charcoal py-20">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <div className="space-y-8 mb-12">
+            <div className="bg-gray-800 border border-gray-700 rounded-lg p-8">
+              <h2 className="text-white text-2xl font-serif font-bold mb-4 flex items-center">
+                <span className="w-1 h-6 bg-burgundy mr-3"></span>
+                Committee Mandate
+              </h2>
+              <p className="text-gray-300 font-sans text-base md:text-lg leading-relaxed">
+                {committee.mandate}
+              </p>
+            </div>
+
+            <div className="bg-gray-800 border border-gray-700 rounded-lg p-8">
+              <h2 className="text-white text-2xl font-serif font-bold mb-4 flex items-center">
+                <span className="w-1 h-6 bg-burgundy mr-3"></span>
+                Nature of Debate
+              </h2>
+              <p className="text-gray-300 font-sans text-base md:text-lg leading-relaxed">
+                {committee.debate}
+              </p>
+            </div>
+
+            <div className="bg-gray-800 border border-gray-700 rounded-lg p-8">
+              <h2 className="text-white text-2xl font-serif font-bold mb-4 flex items-center">
+                <span className="w-1 h-6 bg-burgundy mr-3"></span>
+                Delegate Experience
+              </h2>
+              <p className="text-gray-300 font-sans text-base md:text-lg leading-relaxed">
+                {committee.experience}
+              </p>
+            </div>
+
+            <div className="bg-gray-800 border border-gray-700 rounded-lg p-8">
+              <h2 className="text-white text-2xl font-serif font-bold mb-4 flex items-center">
+                <span className="w-1 h-6 bg-burgundy mr-3"></span>
+                Skillset Developed
+              </h2>
+              <p className="text-gray-300 font-sans text-base md:text-lg leading-relaxed">
+                {committee.skillset}
+              </p>
+            </div>
+          </div>
+
+          <div className="text-center space-y-6">
+            <p className="text-white text-lg font-sans font-semibold">
+              Ready to join this committee? Register now!
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                onClick={handleInternalClick}
+                className="inline-block bg-burgundy border-2 border-burgundy text-white px-8 py-3 uppercase tracking-wider font-sans font-semibold hover:bg-opacity-90 transition-all duration-300 rounded text-base hover:scale-105 hover:shadow-lg hover:shadow-burgundy/50"
+              >
+                Internal Registration
+              </button>
+              <button
+                onClick={handleExternalClick}
+                className="inline-block bg-burgundy border-2 border-burgundy text-white px-8 py-3 uppercase tracking-wider font-sans font-semibold hover:bg-opacity-90 transition-all duration-300 rounded text-base hover:scale-105 hover:shadow-lg hover:shadow-burgundy/50"
+              >
+                External Registration
+              </button>
+            </div>
+          </div>
         </div>
       </section>
     </div>

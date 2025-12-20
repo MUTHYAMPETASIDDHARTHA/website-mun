@@ -33,11 +33,8 @@ const Navbar = () => {
     setIsMenuOpen(false)
   }
 
-  const handleRegisterClick = (e) => {
-    if (location.pathname === '/') {
-      e.preventDefault()
-      scrollToSection('register')
-    }
+  const handleRegisterClick = () => {
+    navigate('/register')
   }
 
   return (
@@ -52,10 +49,12 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           <Link to="/" className="flex items-center" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <div className="flex items-center space-x-2">
-              <div className="w-12 h-12 rounded-full bg-burgundy border-2 border-white flex items-center justify-center">
-                <div className="w-6 h-6 border border-white rounded-full"></div>
-              </div>
-              <span className="text-white text-xl font-serif font-bold">CMRCET MUN</span>
+              <img
+                src="/images/logo.png"
+                alt="CMRCET MUN Logo"
+                className="w-12 h-12 rounded-full object-cover flex-shrink-0"
+              />
+              <span className="text-white text-xl font-serif font-bold tracking-wide">CMRCET MUN</span>
             </div>
           </Link>
 
@@ -78,13 +77,12 @@ const Navbar = () => {
             >
               SCHEDULE
             </button>
-            <Link
-              to="/register"
+            <button
               onClick={handleRegisterClick}
               className="bg-burgundy text-white px-6 py-2 rounded uppercase text-sm font-sans font-semibold hover:bg-opacity-90 transition-all duration-300 hover:scale-105"
             >
               REGISTER
-            </Link>
+            </button>
           </div>
 
           <button
@@ -104,7 +102,7 @@ const Navbar = () => {
             <button onClick={() => scrollToSection('home')} className="block text-white hover:text-burgundy uppercase text-sm font-sans font-semibold w-full text-left">HOME</button>
             <button onClick={() => scrollToSection('committees')} className="block text-white hover:text-burgundy uppercase text-sm font-sans font-semibold w-full text-left">COMMITTEES</button>
             <button onClick={() => scrollToSection('schedule')} className="block text-white hover:text-burgundy uppercase text-sm font-sans font-semibold w-full text-left">SCHEDULE</button>
-            <Link to="/register" onClick={handleRegisterClick} className="block text-white hover:text-burgundy uppercase text-sm font-sans font-semibold">REGISTER</Link>
+            <button onClick={handleRegisterClick} className="block text-white hover:text-burgundy uppercase text-sm font-sans font-semibold w-full text-left">REGISTER</button>
           </div>
         </div>
       )}
