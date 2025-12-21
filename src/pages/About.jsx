@@ -4,7 +4,7 @@ const About = () => {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="public/images/cmr-bg.jpg"
+            src="/images/cmrcetofficial_cover.jpeg"
             alt="CMRCET MUN About"
             className="w-full h-full object-cover"
           />

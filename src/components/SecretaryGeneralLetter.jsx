@@ -8,30 +8,28 @@ const SecretaryGeneralLetter = () => {
           </h2>
           <div className="prose prose-lg max-w-none text-charcoal leading-relaxed text-left">
             <p className="text-lg md:text-xl mb-8 font-sans font-normal leading-relaxed">
-              Distinguished delegates, esteemed faculty, and honored guests,
+            The Chapter ll of CMRCET Model United Nations Conference marks another step in our journey toward fostering diplomacy, dialogue, and global awareness among students. As Secretary-General, I, Akhil Chidugu, am honored to welcome all delegates, faculty members, and participants to this platform that celebrates collaboration, critical thinking, and leadership.
             </p>
             <p className="text-base md:text-lg mb-8 font-sans font-normal leading-relaxed">
-              It is with immense pleasure and profound honor that I extend to you a warm welcome to the second edition of CMRCET Model United Nations. As we gather here today, we stand at the threshold of an extraordinary journey—one that will challenge our intellect, broaden our perspectives, and inspire us to become the global leaders of tomorrow.
+              At CMRCET MUN, we view Model United Nations as more than an academic exercise. It is an immersive experience where ideas evolve into action, perspectives converge through meaningful discussions, and leadership is cultivated through mutual understanding. This year, we aim to continue our tradition of thoughtful debate while encouraging delegates to approach global issues with a renewed sense of purpose and empathy.t is with immense pleasure and profound honor that I extend to you a warm welcome to the second edition of CMRCET Model United Nations. As we gather here today, we stand at the threshold of an extraordinary journey—one that will challenge our intellect, broaden our perspectives, and inspire us to become the global leaders of tomorrow.
             </p>
             <p className="text-base md:text-lg mb-8 font-sans font-normal leading-relaxed">
-              Model United Nations is more than a simulation; it is a transformative educational experience that bridges the gap between theoretical knowledge and practical diplomacy. Over the course of these three days, you will engage with some of the most pressing issues facing our world today, from international security and human rights to crisis management and parliamentary procedure. Each committee has been carefully designed to provide you with a platform to develop critical thinking, enhance your public speaking abilities, and cultivate the art of diplomatic negotiation.
+            The world today faces pressing challenges—ranging from climate change and inequality to shifting geopolitical landscapes—that demand informed, inclusive, and compassionate dialogue. Through CMRCET MUN, we wish to empower young minds to go beyond representation and engage as changemakers who question, analyze, and collaborate toward building a more equitable and peaceful future.            
             </p>
             <p className="text-base md:text-lg mb-8 font-sans font-normal leading-relaxed">
-              Our commitment to academic excellence and rigorous debate ensures that every delegate will experience a conference of the highest caliber. We have assembled a distinguished secretariat and dedicated committee directors who are passionate about fostering an environment of intellectual growth and collaborative problem-solving. I encourage you to embrace this opportunity with enthusiasm, to listen actively to diverse perspectives, and to contribute meaningfully to the discourse that will unfold in your committees.
+            This conference reflects the dedication of our Secretariat, the steadfast support of our institution, and the enthusiasm of delegates who bring the committees to life. Every contribution, discussion, and idea adds to the legacy of CMRCET MUN as a space where diplomacy thrives and meaningful connections are forged.            
             </p>
-            <p className="text-base md:text-lg mb-8 font-sans font-normal leading-relaxed">
-              As Secretary-General, I am confident that this conference will not only enhance your understanding of international relations but also forge lasting friendships and professional connections. The skills you develop here—diplomacy, negotiation, research, and public speaking—will serve you well beyond these three days, in your academic pursuits and future careers.
-            </p>
-            <p className="text-base md:text-lg mb-8 font-sans font-normal leading-relaxed">
-              I look forward to witnessing the innovative solutions, thoughtful resolutions, and spirited debates that will emerge from our committees. May this conference inspire you to think critically about the world around you and to work collaboratively toward a more just and peaceful global community.
+            <p className="text-base md:text-lg mb-8 font-sans font-normal leading-relaxed"> 
+            We look forward to witnessing the energy, intellect, and creativity that each delegate brings to this platform. May this edition inspire new perspectives, lasting friendships, and impactful dialogue. Let the deliberations begin.
             </p>
             <p className="text-base md:text-lg mb-12 font-sans font-normal leading-relaxed">
               Welcome to CMRCET Model United Nations 2026. Let the deliberations begin.
             </p>
             <div className="mt-16 pt-8 border-t border-gray-300">
-              <p className="text-xl font-serif font-bold mb-2">Chidugu Akhil</p>
+              <p className="text-xl font-serif font-bold mb-2">Warm regards,
+              <br />Akhil Chidugu</p>
               <p className="text-base font-sans font-semibold text-gray-600 mb-1">Secretary-General</p>
-              <p className="text-base font-sans text-gray-600">CMRCET Model United Nations 2026</p>
+              <p className="text-base font-sans text-gray-600">CMRCET Model United Nations Conference – CHAPTER ll</p>
             </div>
           </div>
         </div>
