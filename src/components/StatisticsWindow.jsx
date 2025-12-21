@@ -39,8 +39,8 @@ const StatisticsWindow = () => {
       const progress = currentStep / steps
 
       setCounts({
-        prize: Math.floor(100000 * progress),
-        delegates: Math.floor(280 * progress),
+        prize: Math.floor(115000 * progress),
+        delegates: Math.floor(250 * progress),
         days: 3,
         experience: 1
       })
@@ -48,8 +48,8 @@ const StatisticsWindow = () => {
       if (currentStep >= steps) {
         clearInterval(interval)
         setCounts({
-          prize: 100000,
-          delegates: 280,
+          prize: 115000,
+          delegates: 250,
           days: 3,
           experience: 1
         })

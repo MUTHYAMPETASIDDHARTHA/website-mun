@@ -29,7 +29,7 @@ const AboutSection = () => {
     <section id="about" ref={sectionRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-charcoal">
       <div className="absolute inset-0 z-0">
         <img
-          src="public/images/cmr-bg.jpg"
+          src="/images/cmr-bg.jpg"
           alt="CMRCET MUN About"
           className="w-full h-full object-cover opacity-30"
         />
