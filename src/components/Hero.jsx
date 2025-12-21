@@ -23,7 +23,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <img
           ref={heroRef}
-          src="public\images\backgroundmun.png"
+          src="/images/backgroundmun.png"
           alt="CMRCET MUN Conference"
           className="w-full h-full object-cover transition-transform duration-300"
         />

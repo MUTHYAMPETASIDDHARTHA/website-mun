@@ -88,7 +88,7 @@ const ScheduleSection = () => {
           </div>
           <div className="bg-red-900/50 border border-red-700 rounded-lg p-6">
             <h3 className="text-white text-lg font-serif font-bold mb-3">Contact</h3>
-            <p className="text-gray-300 font-sans text-sm">For schedule queries, contact the organizing committee at schedule@mun.org</p>
+            <p className="text-gray-300 font-sans text-sm">For schedule queries, contact the organizing committee at mun@cmrcet.ac.in</p>
           </div>
         </div>
 

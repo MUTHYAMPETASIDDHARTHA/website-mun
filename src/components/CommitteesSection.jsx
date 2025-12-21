@@ -61,7 +61,7 @@ const CommitteesSection = () => {
       name: 'United Nations Human Rights Council',
       acronym: 'UNHRC',
       delegates: 60,
-      image: 'public/images/unhrc-logo.png'
+      image: '/images/unhrc-logo.png'
     }
   ]
 
