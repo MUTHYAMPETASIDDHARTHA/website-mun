@@ -77,95 +77,90 @@ const CommitteeDetail = () => {
   const committee = committees[name] || committees.ccc
 
   return (
-    <div className="min-h-screen">
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <img
-            src={committee.image}
-            alt={committee.name}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-70"></div>
-        </div>
+    <div className="min-h-screen relative">
+      <div className="fixed inset-0 z-0">
+        <img
+          src={committee.image}
+          alt={committee.name}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-charcoal via-black/90 to-black"></div>
+      </div>
 
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto py-20">
-          <h1 className="text-white text-5xl md:text-7xl font-serif font-bold mb-4 text-shadow">
-            {committee.name}
-          </h1>
-          <p className="text-white text-2xl md:text-3xl font-serif mb-8">
-            {committee.acronym}
-          </p>
-          <p className="text-white text-lg md:text-xl font-sans mb-12 leading-relaxed max-w-3xl mx-auto">
-            {committee.description}
-          </p>
-          <div className="mb-8">
-            <p className="text-white text-xl font-sans mb-4">
+      <section className="relative z-10 min-h-screen">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 pt-20 lg:pt-32 pb-20">
+          {/* Committee Title */}
+          <div className="text-center mb-16 pt-20">
+            <h1 className="text-white text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 text-shadow">
+              {committee.name}
+            </h1>
+            <p className="text-white text-2xl md:text-3xl font-serif mb-8">
+              {committee.acronym}
+            </p>
+            <div className="w-24 h-1 bg-burgundy mx-auto mb-8"></div>
+            <p className="text-white text-lg md:text-xl font-sans leading-relaxed max-w-3xl mx-auto mb-6">
+              {committee.description}
+            </p>
+            <p className="text-white text-xl font-sans">
               <span className="font-bold">{committee.delegates}</span> Delegates
             </p>
           </div>
-        </div>
-      </section>
 
-      <section className="bg-charcoal py-20">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <div className="space-y-8 mb-12">
-            <div className="bg-gray-800 border border-gray-700 rounded-lg p-8">
-              <h2 className="text-white text-2xl font-serif font-bold mb-4 flex items-center">
-                <span className="w-1 h-6 bg-burgundy mr-3"></span>
-                Committee Mandate
+          {/* Agenda Section */}
+          <div className="max-w-4xl mx-auto mb-20">
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-8 lg:p-12 shadow-xl">
+              <h2 className="text-white text-3xl md:text-4xl font-serif font-bold mb-6 text-center">
+                Agenda
               </h2>
-              <p className="text-gray-300 font-sans text-base md:text-lg leading-relaxed">
-                {committee.mandate}
-              </p>
-            </div>
-
-            <div className="bg-gray-800 border border-gray-700 rounded-lg p-8">
-              <h2 className="text-white text-2xl font-serif font-bold mb-4 flex items-center">
-                <span className="w-1 h-6 bg-burgundy mr-3"></span>
-                Nature of Debate
-              </h2>
-              <p className="text-gray-300 font-sans text-base md:text-lg leading-relaxed">
-                {committee.debate}
-              </p>
-            </div>
-
-            <div className="bg-gray-800 border border-gray-700 rounded-lg p-8">
-              <h2 className="text-white text-2xl font-serif font-bold mb-4 flex items-center">
-                <span className="w-1 h-6 bg-burgundy mr-3"></span>
-                Delegate Experience
-              </h2>
-              <p className="text-gray-300 font-sans text-base md:text-lg leading-relaxed">
-                {committee.experience}
-              </p>
-            </div>
-
-            <div className="bg-gray-800 border border-gray-700 rounded-lg p-8">
-              <h2 className="text-white text-2xl font-serif font-bold mb-4 flex items-center">
-                <span className="w-1 h-6 bg-burgundy mr-3"></span>
-                Skillset Developed
-              </h2>
-              <p className="text-gray-300 font-sans text-base md:text-lg leading-relaxed">
-                {committee.skillset}
+              <div className="w-16 h-1 bg-burgundy mx-auto mb-8"></div>
+              <p className="text-gray-300 text-center text-lg md:text-xl font-sans">
+                Yet to be announced
               </p>
             </div>
           </div>
 
-          <div className="text-center space-y-6">
-            <p className="text-white text-lg font-sans font-semibold">
-              Ready to join this committee? Register now!
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          {/* Executive Board Section */}
+          <div className="max-w-5xl mx-auto mb-20">
+            <h2 className="text-white text-3xl md:text-4xl font-serif font-bold mb-6 text-center">
+              Executive Board
+            </h2>
+            <div className="w-16 h-1 bg-burgundy mx-auto mb-12"></div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+              {[1, 2, 3].map((item) => (
+                <div
+                  key={item}
+                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-8 text-center shadow-xl hover:bg-white/10 transition-all duration-300"
+                >
+                  <div className="w-32 h-32 rounded-full bg-gradient-to-br from-burgundy/20 to-charcoal/40 border-2 border-burgundy/30 mx-auto mb-6 flex items-center justify-center">
+                    <svg className="w-16 h-16 text-burgundy/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-white text-xl font-sans font-bold mb-3">
+                    To be announced
+                  </h3>
+                  <p className="text-burgundy font-sans text-base font-semibold">
+                    Executive Board
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Register Buttons */}
+          <div className="text-center pt-8 pb-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto">
               <button
                 onClick={handleInternalClick}
-                className="inline-block bg-burgundy border-2 border-burgundy text-white px-8 py-3 uppercase tracking-wider font-sans font-semibold hover:bg-opacity-90 transition-all duration-300 rounded text-base hover:scale-105 hover:shadow-lg hover:shadow-burgundy/50"
+                className="w-full sm:w-auto bg-burgundy border-2 border-burgundy text-white px-8 py-4 uppercase tracking-wider font-sans font-semibold hover:bg-opacity-90 transition-all duration-300 rounded text-base hover:scale-105 hover:shadow-lg hover:shadow-burgundy/50"
               >
-                Internal Registration
+                Internal Delegate
               </button>
               <button
                 onClick={handleExternalClick}
-                className="inline-block bg-burgundy border-2 border-burgundy text-white px-8 py-3 uppercase tracking-wider font-sans font-semibold hover:bg-opacity-90 transition-all duration-300 rounded text-base hover:scale-105 hover:shadow-lg hover:shadow-burgundy/50"
+                className="w-full sm:w-auto bg-burgundy border-2 border-burgundy text-white px-8 py-4 uppercase tracking-wider font-sans font-semibold hover:bg-opacity-90 transition-all duration-300 rounded text-base hover:scale-105 hover:shadow-lg hover:shadow-burgundy/50"
               >
-                External Registration
+                External Delegate
               </button>
             </div>
           </div>

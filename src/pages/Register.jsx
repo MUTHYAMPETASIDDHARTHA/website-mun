@@ -84,7 +84,7 @@ const Register = () => {
               </div>
             </div>
             <div className="text-3xl md:text-4xl font-serif font-bold text-white mb-4 group-hover:text-burgundy transition-colors duration-300">
-              External
+              External Delegate
             </div>
             <p className="text-gray-400 font-sans text-sm">Other Colleges</p>
           </button>
