@@ -29,7 +29,7 @@ const ScheduleSection = () => {
           <div className="text-center">
             <h3 className="text-white text-2xl md:text-3xl font-serif font-bold mb-4">
               Day 3
-            </h3>
+              </h3>
             <p className="text-gray-300 text-lg font-sans">
               Coming Soon
             </p>

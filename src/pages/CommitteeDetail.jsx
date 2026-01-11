@@ -26,7 +26,13 @@ const CommitteeDetail = () => {
       experience: 'This committee is ideal for delegates who thrive under pressure and enjoy dynamic, unpredictable scenarios. It requires quick thinking, adaptability, and the ability to make decisive choices while maintaining diplomatic decorum.',
       skillset: 'Participants will develop critical thinking, crisis management, rapid decision-making, negotiation under pressure, strategic planning, and leadership skills. The committee emphasizes real-world problem-solving and the ability to work effectively in high-stakes situations.',
       delegates: 60,
-      image: '/images/crisis-bg.png'
+      image: '/images/crisis-bg.png',
+      agenda: 'Freeze date is 23rd June 1948.',
+      executiveBoard: [
+        { name: 'Ishaan Poddar', role: 'Director', image: '/images/dirctor-crisis.jpeg' },
+        { name: 'Suvidya Kanakanala', role: 'Deputy Director', image: '/images/deputy-director-crisis.jpeg' },
+        { name: 'S. Bhavith Reddy', role: 'Repportuer', image: '/images/repportuer-ccc.jpeg' }
+      ]
     },
     disec: {
       name: 'Disarmament and International Security Committee',
@@ -37,7 +43,13 @@ const CommitteeDetail = () => {
       experience: 'This committee is perfect for delegates interested in international relations, security studies, and conflict resolution. It requires thorough research, understanding of complex security dynamics, and the ability to navigate sensitive geopolitical issues.',
       skillset: 'Participants will enhance their research capabilities, policy analysis, diplomatic negotiation, public speaking, consensus-building, and understanding of international security frameworks. The committee emphasizes analytical thinking and collaborative problem-solving.',
       delegates: 60,
-      image: '/images/image.png'
+      image: '/images/image.png',
+      agenda: 'Deliberation on the establishment of a Weapons of Mass Destruction-free Zone in the Middle East.',
+      executiveBoard: [
+        { name: 'Eshwar Chava', role: 'Chair', image: '/images/chair-disec.jpeg' },
+        { name: 'Thanwika Shivarathree', role: 'Vice Chair', image: '/images/vice_chair-disec.jpeg' },
+        { name: 'Jayden Lawrence', role: 'Repportuer', image: '/images/repportuer-disec.jpeg' }
+      ]
     },
     ip: {
       name: 'International Press',
@@ -48,7 +60,13 @@ const CommitteeDetail = () => {
       experience: 'This committee is ideal for delegates interested in journalism, media, communications, and creative writing. It offers a unique behind-the-scenes perspective on MUN proceedings and requires strong writing and communication skills.',
       skillset: 'Participants will develop journalistic writing, interviewing techniques, multimedia production, editorial skills, critical analysis, time management, and media ethics. The committee emphasizes creativity, objectivity, and effective communication.',
       delegates: 60,
-      image: '/images/ip-bg.jpg'
+      image: '/images/ip-bg.jpg',
+      agenda: 'Yet to be announced',
+      executiveBoard: [
+        { name: 'Sai Preethi Pollu', role: 'Head', image: '/images/head-ip.jpeg' },
+        { name: 'Sri Krishna Chaitanya', role: 'Director of Photography', image: '/images/dop-ip.jpeg' },
+        { name: 'Nethi Saraschandra', role: 'Editor in Chief', image: '/images/editor-in-chief-ip.jpeg' }
+      ]
     },
     'lok-sabha': {
       name: 'Lok Sabha',
@@ -59,7 +77,17 @@ const CommitteeDetail = () => {
       experience: 'This committee is perfect for delegates interested in Indian politics, governance, and legislative processes. It requires understanding of parliamentary procedures, political dynamics, and the ability to balance party loyalty with constituency representation.',
       skillset: 'Participants will develop parliamentary procedure knowledge, legislative drafting, political negotiation, public speaking, constituency representation, and understanding of democratic processes. The committee emphasizes procedural knowledge and political acumen.',
       delegates: 60,
-      image: '/images/loksabha-bg.jpg'
+      image: '/images/loksabha-bg.jpg',
+      agenda: [
+        'Deliberating upon strengthening privacy laws in India with special emphasis on regulating moral policing and countering forces curtailing liberty in India.',
+        'Discussion on regulating Sports Sector in India and emphasising debate on privatising all the Sports Bodies or bringing in Government control across all the Sports Bodies in Indis, with detailed analysis of National Sports Governance Act, 2025.'
+      ],
+      executiveBoard: [
+        { name: 'Naman Vankdari', role: 'Speaker', image: '/images/speaker-ls.jpeg' },
+        { name: 'Sai Ruthwik Gampa', role: 'Co-Deputy Speaker', image: '/images/co-deputy speaker ls-1.jpeg' },
+        { name: 'Nidadavolu Krishna Reddy', role: 'Co-Deputy Speaker', image: '/images/co-deputy speaker ls-2.jpeg' },
+        { name: 'Dharmavaram Prabhas Krishna', role: 'Scribe', image: '/images/scribe ls.jpeg' }
+      ]
     },
     unhrc: {
       name: 'United Nations Human Rights Council',
@@ -70,7 +98,13 @@ const CommitteeDetail = () => {
       experience: 'This committee is ideal for delegates passionate about human rights, social justice, and humanitarian issues. It requires empathy, understanding of international law, and the ability to navigate complex ethical and political considerations.',
       skillset: 'Participants will develop understanding of human rights frameworks, legal analysis, humanitarian advocacy, diplomatic negotiation, conflict resolution, and ethical reasoning. The committee emphasizes empathy, legal knowledge, and collaborative problem-solving.',
       delegates: 60,
-      image: '/images/hrc-bg.jpg'
+      image: '/images/hrc-bg.jpg',
+      agenda: 'Assessing the Human Rights situation in Belarus with special emphasis on the Political Prisoners, Freedom of Expression and Judicial Independence.',
+      executiveBoard: [
+        { name: 'To be announced', role: 'Executive Board', image: null },
+        { name: 'To be announced', role: 'Executive Board', image: null },
+        { name: 'To be announced', role: 'Executive Board', image: null }
+      ]
     }
   }
 
@@ -108,15 +142,31 @@ const CommitteeDetail = () => {
 
           {/* Agenda Section */}
           <div className="max-w-4xl mx-auto mb-20">
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-8 lg:p-12 shadow-xl">
-              <h2 className="text-white text-3xl md:text-4xl font-serif font-bold mb-6 text-center">
-                Agenda
-              </h2>
-              <div className="w-16 h-1 bg-burgundy mx-auto mb-8"></div>
-              <p className="text-gray-300 text-center text-lg md:text-xl font-sans">
-                Yet to be announced
-              </p>
-            </div>
+            {Array.isArray(committee.agenda) ? (
+              <div className="space-y-6">
+                {committee.agenda.map((agendaItem, index) => (
+                  <div key={index} className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-8 lg:p-12 shadow-xl">
+                    <h2 className="text-white text-3xl md:text-4xl font-serif font-bold mb-6 text-center">
+                      Agenda {index + 1}
+                    </h2>
+                    <div className="w-16 h-1 bg-burgundy mx-auto mb-8"></div>
+                    <p className="text-gray-300 text-center text-lg md:text-xl font-sans">
+                      {agendaItem}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-8 lg:p-12 shadow-xl">
+                <h2 className="text-white text-3xl md:text-4xl font-serif font-bold mb-6 text-center">
+                  Agenda
+                </h2>
+                <div className="w-16 h-1 bg-burgundy mx-auto mb-8"></div>
+                <p className="text-gray-300 text-center text-lg md:text-xl font-sans">
+                  {committee.agenda}
+                </p>
+              </div>
+            )}
           </div>
 
           {/* Executive Board Section */}
@@ -126,21 +176,29 @@ const CommitteeDetail = () => {
             </h2>
             <div className="w-16 h-1 bg-burgundy mx-auto mb-12"></div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-              {[1, 2, 3].map((item) => (
+              {committee.executiveBoard.map((member, index) => (
                 <div
-                  key={item}
+                  key={index}
                   className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-8 text-center shadow-xl hover:bg-white/10 transition-all duration-300"
                 >
-                  <div className="w-32 h-32 rounded-full bg-gradient-to-br from-burgundy/20 to-charcoal/40 border-2 border-burgundy/30 mx-auto mb-6 flex items-center justify-center">
-                    <svg className="w-16 h-16 text-burgundy/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
+                  <div className="w-32 h-32 rounded-full bg-gradient-to-br from-burgundy/20 to-charcoal/40 border-2 border-burgundy/30 mx-auto mb-6 flex items-center justify-center overflow-hidden">
+                    {member.image ? (
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <svg className="w-16 h-16 text-burgundy/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                    )}
                   </div>
                   <h3 className="text-white text-xl font-sans font-bold mb-3">
-                    To be announced
+                    {member.name}
                   </h3>
                   <p className="text-burgundy font-sans text-base font-semibold">
-                    Executive Board
+                    {member.role}
                   </p>
                 </div>
               ))}
