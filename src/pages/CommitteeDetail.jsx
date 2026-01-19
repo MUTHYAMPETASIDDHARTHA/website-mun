@@ -16,6 +16,12 @@ const CommitteeDetail = () => {
     window.open('https://forms.gle/2eW8DP92m8P9G3ap6', '_blank')
   }
 
+  const handlePdfClick = () => {
+    if (committee.pdf) {
+      window.open(committee.pdf, '_blank')
+    }
+  }
+
   const committees = {
     ccc: {
       name: 'Continuous Crisis Committee',
@@ -28,6 +34,7 @@ const CommitteeDetail = () => {
       delegates: 60,
       image: '/images/crisis-bg.png',
       agenda: 'Freeze date is 23rd June 1948.',
+      pdf: '/images/CMRCET HCCC BG 2026.pdf',
       executiveBoard: [
         { name: 'Ishaan Poddar', role: 'Director', image: '/images/dirctor-crisis.jpeg' },
         { name: 'Suvidya Kanakanala', role: 'Deputy Director', image: '/images/deputy-director-crisis.jpeg' },
@@ -45,6 +52,7 @@ const CommitteeDetail = () => {
       delegates: 60,
       image: '/images/image.png',
       agenda: 'Deliberation on the establishment of a Weapons of Mass Destruction-free Zone in the Middle East.',
+      pdf: '/pdfs/disec.pdf',
       executiveBoard: [
         { name: 'Eshwar Chava', role: 'Chair', image: '/images/chair-disec.jpeg' },
         { name: 'Thanwika Shivarathree', role: 'Vice Chair', image: '/images/vice_chair-disec.jpeg' },
@@ -62,6 +70,7 @@ const CommitteeDetail = () => {
       delegates: 60,
       image: '/images/ip-bg.jpg',
       agenda: 'Yet to be announced',
+      pdf: '/pdfs/ip.pdf',
       executiveBoard: [
         { name: 'Sai Preethi Pollu', role: 'Head', image: '/images/head-ip.jpeg' },
         { name: 'Sri Krishna Chaitanya', role: 'Director of Photography', image: '/images/dop-ip.jpeg' },
@@ -82,6 +91,7 @@ const CommitteeDetail = () => {
         'Deliberating upon strengthening privacy laws in India with special emphasis on regulating moral policing and countering forces curtailing liberty in India.',
         'Discussion on regulating Sports Sector in India and emphasising debate on privatising all the Sports Bodies or bringing in Government control across all the Sports Bodies in Indis, with detailed analysis of National Sports Governance Act, 2025.'
       ],
+      pdf: '/images/CMRCET MUN I LOK SABHA BG .pdf',
       executiveBoard: [
         { name: 'Naman Vankdari', role: 'Speaker', image: '/images/speaker-ls.jpeg' },
         { name: 'Sai Ruthwik Gampa', role: 'Co-Deputy Speaker', image: '/images/co-deputy speaker ls-1.jpeg' },
@@ -100,6 +110,7 @@ const CommitteeDetail = () => {
       delegates: 60,
       image: '/images/hrc-bg.jpg',
       agenda: 'Assessing the Human Rights situation in Belarus with special emphasis on the Political Prisoners, Freedom of Expression and Judicial Independence.',
+      pdf: '/pdfs/unhrc.pdf',
       executiveBoard: [
         { name: 'To be announced', role: 'Executive Board', image: null },
         { name: 'To be announced', role: 'Executive Board', image: null },
@@ -168,6 +179,31 @@ const CommitteeDetail = () => {
               </div>
             )}
           </div>
+
+          {/* Background Guide / Problem Statement PDF Section */}
+          {committee.pdf && (
+            <div className="max-w-4xl mx-auto mb-20">
+              <div
+                onClick={handlePdfClick}
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-8 lg:p-12 shadow-xl cursor-pointer hover:bg-white/10 transition-all duration-300"
+              >
+                <div className="flex flex-col items-center">
+                  <div className="mb-6">
+                    <svg className="w-16 h-16 text-burgundy/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <h2 className="text-white text-3xl md:text-4xl font-serif font-bold mb-4 text-center">
+                    Background Guide / Problem Statement
+                  </h2>
+                  <div className="w-16 h-1 bg-burgundy mx-auto mb-4"></div>
+                  <p className="text-gray-300 text-center text-lg md:text-xl font-sans">
+                    Click to view PDF
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Executive Board Section */}
           <div className="max-w-5xl mx-auto mb-20">
