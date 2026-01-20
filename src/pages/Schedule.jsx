@@ -1,92 +1,129 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { itineraryDays } from '../components/ItinerarySection'
+
+const TabbedDayCard = ({ day, direction }) => {
+  const [isEntering, setIsEntering] = useState(false)
+
+  useEffect(() => {
+    // Trigger enter animation on mount / when day changes
+    setIsEntering(true)
+    return () => setIsEntering(false)
+  }, [day, direction])
+
+  const baseTransform =
+    direction === 0 ? 'translate-y-4' : direction > 0 ? 'translate-x-4' : '-translate-x-4'
+
+  return (
+    <div
+      className={`bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl shadow-2xl shadow-burgundy/10 px-6 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12 transition-all duration-500 ease-out transform ${
+        isEntering ? 'opacity-100 translate-x-0 translate-y-0' : `opacity-0 ${baseTransform}`
+      }`}
+    >
+      <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-3 mb-6">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-cream tracking-wide">
+          {day.title}
+        </h2>
+        <div className="w-16 h-1 bg-burgundy sm:w-20"></div>
+      </div>
+
+      <div className="mt-6 space-y-5">
+        {day.events.map((event, index) => (
+          <div
+            key={`${event.time}-${event.title}`}
+            className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl px-5 py-4 sm:px-6 sm:py-5 shadow-lg shadow-black/20 hover:shadow-xl hover:shadow-burgundy/15 hover:-translate-y-0.5 transform transition-all duration-300 ease-out"
+            style={{ transitionDelay: `${80 + index * 55}ms` }}
+          >
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              {/* Content */}
+              <div className="min-w-0 flex-1">
+                <p className="text-lg md:text-xl lg:text-2xl font-sans font-semibold text-cream leading-snug">
+                  {event.title}
+                </p>
+                {event.location && (
+                  <p className="mt-1 text-sm md:text-base font-sans text-gray-200/90">
+                    {event.location}
+                  </p>
+                )}
+                {event.description && (
+                  <p className="mt-2 text-sm md:text-base font-sans text-gray-300 leading-relaxed">
+                    {event.description}
+                  </p>
+                )}
+              </div>
+
+              {/* Time pill (high visibility) */}
+              <div className="flex-shrink-0 sm:pl-4">
+                <div className="inline-flex items-center justify-center rounded-full bg-burgundy px-5 py-2.5 shadow-lg shadow-burgundy/40 ring-1 ring-burgundy/40 group-hover:shadow-burgundy/60 transition-shadow duration-300">
+                  <span className="text-cream font-sans font-bold text-sm sm:text-base tracking-wide whitespace-nowrap">
+                    {event.time}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 const Schedule = () => {
   const [activeDay, setActiveDay] = useState(0)
+  const [direction, setDirection] = useState(0)
 
-  const scheduleDays = [
-    {
-      day: 'Day 1',
-      date: 'January 29th, 2026',
-      events: [
-        { time: '09:00 AM - 10:00 AM', title: 'Opening Registrations', color: 'bg-green-500' },
-        { time: '10:00 AM - 11:00 AM', title: 'Opening Ceremony', color: 'bg-blue-500' },
-        { time: '11:30 AM - 11:45 AM', title: 'High Tea 1', color: 'bg-purple-500' },
-        { time: '11:45 AM - 02:00 PM', title: 'Committee Session I', color: 'bg-orange-500' },
-        { time: '02:00 PM - 02:50 PM', title: 'Lunch', color: 'bg-green-500' },
-      ]
-    },
-    {
-      day: 'Day 2',
-      date: 'January 30th, 2026',
-      events: [
-        { time: '09:00 AM - 12:00 PM', title: 'Committee Session II', color: 'bg-blue-500' },
-        { time: '12:00 PM - 01:00 PM', title: 'Lunch Break', color: 'bg-green-500' },
-        { time: '01:00 PM - 04:00 PM', title: 'Committee Session III', color: 'bg-purple-500' },
-        { time: '04:30 PM - 05:00 PM', title: 'High Tea 2', color: 'bg-orange-500' },
-      ]
-    },
-    {
-      day: 'Day 3',
-      date: 'January 31st, 2026',
-      events: [
-        { time: '09:00 AM - 12:00 PM', title: 'Committee Session IV', color: 'bg-blue-500' },
-        { time: '12:00 PM - 01:00 PM', title: 'Lunch Break', color: 'bg-green-500' },
-        { time: '01:00 PM - 03:00 PM', title: 'Final Committee Session', color: 'bg-purple-500' },
-        { time: '03:30 PM - 05:00 PM', title: 'Closing Ceremony', color: 'bg-orange-500' },
-      ]
-    }
-  ]
+  const handleTabClick = (index) => {
+    if (index === activeDay) return
+    setDirection(index > activeDay ? 1 : -1)
+    setActiveDay(index)
+  }
 
   return (
     <div className="min-h-screen bg-charcoal">
-      <section className="relative w-full h-[40vh] flex items-center justify-center overflow-hidden">
+      <section className="relative w-full h-[42vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <div className="w-full h-full bg-gradient-to-b from-charcoal via-charcoal to-black"></div>
+          <div className="w-full h-full bg-charcoal bg-[radial-gradient(circle_at_top,_rgba(128,0,32,0.55),transparent_58%),radial-gradient(circle_at_bottom,_rgba(128,0,32,0.35),transparent_60%)]" />
         </div>
         <div className="relative z-10 text-center px-6">
-          <h1 className="text-white text-6xl md:text-8xl font-serif font-bold mb-4 text-shadow">
+          <h1 className="text-cream text-5xl md:text-6xl lg:text-7xl font-serif font-bold mb-4 text-shadow">
             Itinerary
           </h1>
-          <div className="w-24 h-1 bg-burgundy mx-auto mt-4"></div>
+          <p className="text-gray-200 text-base md:text-lg font-sans max-w-xl mx-auto">
+            A refined overview of the three-day conference schedule at CMRCET MUN.
+          </p>
+          <div className="w-24 h-1 bg-burgundy mx-auto mt-6"></div>
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="flex justify-center mb-12">
-            <div className="inline-flex bg-gray-800 rounded-full p-2 gap-2">
-              {scheduleDays.map((day, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveDay(index)}
-                  className={`px-6 py-3 rounded-full font-sans font-medium transition-all duration-300 ${
-                    activeDay === index
-                      ? 'bg-yellow-400 text-charcoal'
-                      : 'bg-gray-700 text-white hover:bg-gray-600'
-                  }`}
-                >
-                  {day.day} / {day.date.split(' ')[1].replace('th', '').replace('st', '').replace('nd', '').replace('rd', '')} {day.date.split(' ')[0].slice(0, 3).toUpperCase()}
-                </button>
-              ))}
+      <section className="py-16 lg:py-20 bg-gradient-to-b from-charcoal via-charcoal/95 to-charcoal">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          {/* Tabs */}
+          <div className="flex justify-center mb-10">
+            <div className="inline-flex items-center rounded-full bg-white/5 backdrop-blur-md border border-white/10 p-1.5 shadow-lg shadow-burgundy/10">
+              {itineraryDays.map((day, index) => {
+                const isActive = index === activeDay
+                return (
+                  <button
+                    key={day.title}
+                    type="button"
+                    onClick={() => handleTabClick(index)}
+                    className={`relative px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-sans font-semibold transition-all duration-300 ${
+                      isActive
+                        ? 'text-cream bg-gradient-to-r from-burgundy via-burgundy/90 to-burgundy/70 shadow-xl shadow-burgundy/50 ring-1 ring-burgundy/40'
+                        : 'bg-transparent text-gray-300 hover:text-cream hover:bg-white/5'
+                    }`}
+                  >
+                    Day {index + 1}
+                    {isActive && (
+                      <span className="absolute -bottom-1 left-1/2 h-[2px] w-12 -translate-x-1/2 bg-cream/90 rounded-full blur-[0.2px]" />
+                    )}
+                  </button>
+                )
+              })}
             </div>
           </div>
 
-          <div className="space-y-6">
-            {scheduleDays[activeDay].events.map((event, index) => (
-              <div key={index} className="flex items-start gap-6">
-                <div className={`${event.color} w-32 h-20 rounded flex items-center justify-center flex-shrink-0`}>
-                  <p className="text-white text-sm font-sans font-semibold text-center px-2">
-                    {event.time}
-                  </p>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-white text-2xl md:text-3xl font-sans font-bold">
-                    {event.title}
-                  </h3>
-                </div>
-              </div>
-            ))}
-          </div>
+          {/* Active day card */}
+          <TabbedDayCard day={itineraryDays[activeDay]} direction={direction} />
         </div>
       </section>
     </div>

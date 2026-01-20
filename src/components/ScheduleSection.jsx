@@ -1,3 +1,5 @@
+import ItinerarySection from './ItinerarySection'
+
 const ScheduleSection = () => {
   return (
     <section id="schedule" className="bg-charcoal py-20 lg:py-32">
@@ -8,33 +10,7 @@ const ScheduleSection = () => {
           </h2>
           <div className="w-24 h-1 bg-burgundy mx-auto"></div>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          <div className="text-center">
-            <h3 className="text-white text-2xl md:text-3xl font-serif font-bold mb-4">
-              Day 1
-            </h3>
-            <p className="text-gray-300 text-lg font-sans">
-              Coming Soon
-            </p>
-          </div>
-          <div className="text-center">
-            <h3 className="text-white text-2xl md:text-3xl font-serif font-bold mb-4">
-              Day 2
-            </h3>
-            <p className="text-gray-300 text-lg font-sans">
-              Coming Soon
-            </p>
-          </div>
-          <div className="text-center">
-            <h3 className="text-white text-2xl md:text-3xl font-serif font-bold mb-4">
-              Day 3
-              </h3>
-            <p className="text-gray-300 text-lg font-sans">
-              Coming Soon
-            </p>
-          </div>
-        </div>
+        <ItinerarySection variant="tabs" />
       </div>
     </section>
   )

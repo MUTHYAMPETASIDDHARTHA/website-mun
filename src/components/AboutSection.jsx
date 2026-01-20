@@ -31,9 +31,10 @@ const AboutSection = () => {
         <img
           src="/images/cmrcetofficial_cover.jpeg"
           alt="CMRCET MUN About"
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full object-cover opacity-45"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-charcoal via-charcoal/95 to-charcoal"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/70 via-charcoal/55 to-charcoal/75"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(128,0,32,0.22),transparent_55%),radial-gradient(circle_at_bottom,_rgba(128,0,32,0.16),transparent_60%)]"></div>
       </div>
 
       <div className={`relative z-10 text-center px-6 max-w-4xl mx-auto py-20 transform transition-all duration-1000 ${
