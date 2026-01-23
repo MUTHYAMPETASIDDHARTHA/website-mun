@@ -3,6 +3,7 @@ import StatisticsWindow from '../components/StatisticsWindow'
 import SecretaryGeneralLetter from '../components/SecretaryGeneralLetter'
 import AboutSection from '../components/AboutSection'
 import CommitteesSection from '../components/CommitteesSection'
+import SecretariatSection from '../components/SecretariatSection'
 import ScheduleSection from '../components/ScheduleSection'
 import RegisterSection from '../components/RegisterSection'
 import Footer from '../components/Footer'
@@ -15,6 +16,7 @@ const Home = () => {
       <AboutSection />
       <SecretaryGeneralLetter />
       <CommitteesSection />
+      <SecretariatSection />
       <ScheduleSection />
       <RegisterSection />
       <Footer />

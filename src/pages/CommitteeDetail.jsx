@@ -110,7 +110,7 @@ const CommitteeDetail = () => {
       delegates: 60,
       image: '/images/hrc-bg.jpg',
       agenda: 'Assessing the Human Rights situation in Belarus with special emphasis on the Political Prisoners, Freedom of Expression and Judicial Independence.',
-      pdf: '/pdfs/unhrc.pdf',
+      pdf: '/images/UNHRC CMRCET MUN .pdf',
       executiveBoard: [
         { name: 'To be announced', role: 'Executive Board', image: null },
         { name: 'To be announced', role: 'Executive Board', image: null },
