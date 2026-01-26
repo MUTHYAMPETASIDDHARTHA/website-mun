@@ -52,7 +52,7 @@ const CommitteeDetail = () => {
       delegates: 60,
       image: '/images/image.png',
       agenda: 'Deliberation on the establishment of a Weapons of Mass Destruction-free Zone in the Middle East.',
-      pdf: '/pdfs/disec.pdf',
+      pdf: '/images/CMRCET MUN 2026 BG - DISEC.pdf',
       executiveBoard: [
         { name: 'Eshwar Chava', role: 'Chair', image: '/images/chair-disec.jpeg' },
         { name: 'Thanwika Shivarathree', role: 'Vice Chair', image: '/images/vice_chair-disec.jpeg' },
@@ -70,7 +70,7 @@ const CommitteeDetail = () => {
       delegates: 60,
       image: '/images/ip-bg.jpg',
       agenda: 'Yet to be announced',
-      pdf: '/pdfs/ip.pdf',
+      pdf: '/images/IP_Style_Guide_CMRCET.pdf',
       executiveBoard: [
         { name: 'Sai Preethi Pollu', role: 'Head', image: '/images/head-ip.jpeg' },
         { name: 'Sri Krishna Chaitanya', role: 'Director of Photography', image: '/images/dop-ip.jpeg' },
