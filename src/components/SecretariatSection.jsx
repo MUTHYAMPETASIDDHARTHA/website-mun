@@ -49,7 +49,7 @@ const SecretariatSection = () => {
     { name: 'J. Venkat Durga Prasad', role: 'Social Media Lead', image: '/images/Baymax.jpeg' },
     
     { name: 'G. Praneeth Kumar Goud', role: 'Content Creation Lead', image: '/images/Praneeth.jpeg' },
-    { name: 'Kaushik Srinivas Khanapur', role: 'Finance Head', image: '/images/Kaushik.jpg' },
+    { name: 'Kaushik Srinivas Khanapur', role: 'Finance Head', image: '/images/IMG_1427.jpg' },
     { name: 'Sri Harsha Varanasi', role: 'Marketing Head', image: '/images/Harsha.jpg' },
     { name: 'M. Dheeraj', role: 'Marketing Head', image: '/images/Dheeraj.jpeg'},
     
